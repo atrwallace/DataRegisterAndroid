@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cadastro de Usuário"
+        android:textAlignment="center"
+        android:textSize="34sp" />
+
+    <EditText
+        android:id="@+id/inputName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/digite_seu_nome"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/inputEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/digite_seu_email"
+        android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/anime_favorito" />
+
+    <CheckBox
+        android:id="@+id/checkBoxNaruto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/naruto" />
+
+    <CheckBox
+        android:id="@+id/checkBoxHunter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hunter_x_hunter" />
+
+    <CheckBox
+        android:id="@+id/checkBoxTitan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/attack_on_titan" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sexo" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radioBtnMale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/masculino" />
+
+        <RadioButton
+            android:id="@+id/radioBtnFem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/feminino" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnEnviar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/enviar" />
+
+    <Button
+        android:id="@+id/btnClean"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/limpar" />
+
+    <TextView
+        android:id="@+id/txtRes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center" />
+
+</LinearLayout>
+</ScrollView>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ComponentesBasicos</string>
+    <string name="enviar">Enviar</string>
+    <string name="naruto">Naruto</string>
+    <string name="digite_seu_nome">Digite seu nome</string>
+    <string name="digite_seu_email">Digite seu email</string>
+    <string name="limpar">Limpar</string>
+    <string name="anime_favorito">Anime favorito:</string>
+    <string name="hunter_x_hunter">Hunter x Hunter</string>
+    <string name="attack_on_titan">Attack on Titan</string>
+    <string name="sexo">Sexo:</string>
+    <string name="masculino">Masculino</string>
+    <string name="feminino">Feminino</string>
+</resources>
