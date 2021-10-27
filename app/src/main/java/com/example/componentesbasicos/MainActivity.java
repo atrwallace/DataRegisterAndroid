@@ -1,7 +1,9 @@
 package com.example.componentesbasicos;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +12,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -29,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
     private String opcaoSex = "";
     private String sex = "";
     private String res = "";
+    private Switch switchNotify;
+    private ToggleButton togglePrivacy;
+    private String privacyProfile;
+    private String notifyEmail;
+    private SeekBar seekBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,16 +62,20 @@ public class MainActivity extends AppCompatActivity {
         radioBtnMale = findViewById(R.id.radioBtnMale);
         radioBtnFem = findViewById(R.id.radioBtnFem);
         radioGroup = findViewById(R.id.radioGroup);
+        switchNotify = findViewById(R.id.switchNotify);
+        togglePrivacy = findViewById(R.id.togglePrivacy);
+        seekBar = findViewById(R.id.seekBarWill);
     }
 
     public void initListeners() {
-        String no1 = inputName.getText().toString();
-        String em1 = inputEmail.getText().toString();
 
         btnEnviar.setOnClickListener(v -> {
+            String no1 = inputName.getText().toString();
+            String em1 = inputEmail.getText().toString();
             Boolean validprogress = vFill(no1, em1);
             if (validprogress) {
                 captureInput(v);
+                dialogOpen();
             } else {
                 txtRes.setText("Nome e/ou Email inválidos!");
             }
@@ -74,6 +89,21 @@ public class MainActivity extends AppCompatActivity {
                 checkBox());
     }
 
+    public void privacy() {
+        if (togglePrivacy.isChecked()) {
+            privacyProfile = "Perfil público";
+        } else {
+            privacyProfile = "Perfil privado";
+        }
+    }
+
+    public void notifyingEmail() {
+        if (switchNotify.isChecked()) {
+            notifyEmail = "Notificações ativas";
+        } else {
+            notifyEmail = "Notificações desativadas";
+        }
+    }
 
     public void checkBox() {
         if (checkBoxHunter.isChecked()) {
@@ -120,8 +150,33 @@ public class MainActivity extends AppCompatActivity {
         email = inputEmail.getText().toString();
         checkBox();
         radioBtn();
+        privacy();
+        notifyingEmail();
+        txtRes.setText(nome + "\n" + email + "\n" + res + " \n " + sex + "\n" + notifyEmail + "\n" + privacyProfile + "\n" +
+                "Força de vontade: " + seekBar.getProgress() + "/" + seekBar.getMax());
+    }
 
-        txtRes.setText(nome + "\n" + email + "\n" + res + " \n " + sex);
+    public void dialogOpen() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle("Confirmação de envio");
+        dialog.setMessage("Você tem certeza que deseja enviar os seus dados para cadastro?");
+        dialog.setCancelable(false);
+        dialog.setIcon(android.R.drawable.ic_dialog_alert);
+        dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(), "Você concordou e enviamos!", Toast.LENGTH_LONG).show();
+            }
+        });
+        dialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                cleanInput(btnClean);
+                Toast.makeText(getApplicationContext(), "Seu cadastro não foi enviado", Toast.LENGTH_LONG).show();
+            }
+        });
+        dialog.create();
+        dialog.show();
     }
 
     public void cleanInput(View view) {
@@ -133,5 +188,6 @@ public class MainActivity extends AppCompatActivity {
         checkBoxHunter.setChecked(false);
         radioBtnMale.setChecked(false);
         radioBtnFem.setChecked(false);
+        seekBar.setProgress(0);
     }
 }

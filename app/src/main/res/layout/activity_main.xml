@@ -17,25 +17,23 @@
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cadastro de Usuário"
+        android:text="@string/cadastro_de_usu_rio"
         android:textAlignment="center"
         android:textSize="34sp" />
 
     <EditText
         android:id="@+id/inputName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="68dp"
         android:ems="10"
-        android:hint="@string/digite_seu_nome"
-        android:inputType="textPersonName" />
+        android:hint="@string/digite_seu_nome" />
 
     <EditText
         android:id="@+id/inputEmail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="64dp"
         android:ems="10"
-        android:hint="@string/digite_seu_email"
-        android:inputType="textEmailAddress" />
+        android:hint="@string/digite_seu_email" />
 
     <TextView
         android:id="@+id/textView2"
@@ -83,7 +81,47 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/feminino" />
+
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/qual_sua_for_a_de_vontade"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/numa_escala_de_0_a_10"
+        android:textAlignment="center" />
+
+    <SeekBar
+        android:id="@+id/seekBarWill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="10"
+        android:progress="0" />
+
+    <Switch
+        android:id="@+id/switchNotify"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:text="Notificações por email"
+        android:textOff="Notificações desativadas"
+        android:textOn="Notificações ativadas" />
+
+    <ToggleButton
+        android:id="@+id/togglePrivacy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Perfil Privado"
+        android:textOff="Perfil Privado"
+        android:textOn="Perfil Público" />
 
     <Button
         android:id="@+id/btnEnviar"
